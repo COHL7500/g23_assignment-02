@@ -119,5 +119,30 @@ public class QueriesTests
         Assert.Equal(expected, result);
     }
     
+    [Fact]
+    public void getReversedOrderedListEx_returns_reverse_order_by_creator_list()
+    {
+        // Arrange
+        var wizards = WizardCollection.Create();
+        string[] expected =
+        {
+            "Darth Vader", 
+            "Darth Sidious", 
+            "Darth Maul", 
+            "Sauron", 
+            "Saruman",
+            "Morgoth",
+            "Gandalf",
+            "Voldemort",
+            "Harry Potter",
+            "Dumbledore"
+        };
+
+        var result = Queries.GetReversedOrderedListEX(wizards);
+        
+        // Assert
+        Assert.Equal(expected, result);
+    }
+    
     
 }
