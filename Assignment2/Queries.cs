@@ -5,8 +5,7 @@ public class Queries
     
     public static IEnumerable<string> getWizardWithConstrainEx(WizardCollection wizards) {
         var harryCharacters = wizards.Where(w => w.Creator.Contains("Rowling")).Select(w => w.Name);
-        var NotHarryCharacters = wizards.Where(w => !w.Creator.Contains("Rowling")).Select(w => w.ToString());
-        return harryCharacters.Concat(NotHarryCharacters);
+        return harryCharacters;
     }
 
     public static IEnumerable<string> getWizardWithConstrain(WizardCollection wizards) {
@@ -14,11 +13,7 @@ public class Queries
             from w in wizards
             where w.Creator.Contains("Rowling")
             select w.Name;
-        var NotHarryCharacters = 
-            from w in wizards
-            where !w.Creator.Contains("Rowling")
-            select w.ToString();
-        return harryCharacters.Concat(NotHarryCharacters);
+        return harryCharacters;
     }
     public static int? GetFirstSithYearEx(WizardCollection wizards) {
         var result = wizards.Where(w => w.Name.Contains("Darth"));
