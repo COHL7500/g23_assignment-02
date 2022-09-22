@@ -44,6 +44,6 @@ public class ImmutableStudentTest
         DateTime graduationDate = new DateTime(2027,8,20);
         ImmutableStudent testStudent = new ImmutableStudent(id, givenName, surName, startDate, endDate, graduationDate);
         // Assert.Equal("ImmutableStudent { Id = 0, GivenName = test, SurName = tester, StartDate = 20.08.2024 00.00.00, EndDate = 20.08.2027 00.00.00, GraduationDate = 20.08.2027 00.00.00, StudentStatus = NEW }", testStudent.ToString());
-        Assert.Equal("ImmutableStudent { Id = 0, GivenName = test, SurName = tester, StartDate = 08/20/2024 00.00.00, EndDate = 08/20/2027 00.00.00, GraduationDate = 08/20/2027 00.00.00, StudentStatus = NEW }", testStudent.ToString());
+        Assert.Equal("ImmutableStudent { Id = 0, GivenName = test, SurName = tester, StartDate = 08/20/2024 00:00:00, EndDate = 08/20/2027 00:00:00, GraduationDate = 08/20/2027 00:00:00, StudentStatus = NEW }", testStudent.ToString());
     }
 }
