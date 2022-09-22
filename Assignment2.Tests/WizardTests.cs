@@ -7,7 +7,7 @@ public class WizardTests
     {
         var wizards = WizardCollection.Create();
 
-        Assert.Equal(11, wizards.Count());
+        wizards.Should().HaveCount(11);
     }
 
     [Theory]

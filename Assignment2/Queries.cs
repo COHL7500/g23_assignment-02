@@ -25,14 +25,14 @@ public class Queries
         return result.Min(w => w.Year);
     }
 
-    public int? GetFirstSithYear(WizardCollection wizards) {
+    public static int? GetFirstSithYear(WizardCollection wizards) {
         var result = 
             from w in wizards
             where w.Name.Contains("Darth")
             select w.Year;
         return result.Min();
     }
-
+    
     public IEnumerable<(string name, int? year)> GetHarryPotterCharactersEx(WizardCollection wizards) {
         return wizards.Where(w => w.Medium.Contains("Harry Potter")).Select(w => (w.Name, w.Year)).Distinct();
     } 
