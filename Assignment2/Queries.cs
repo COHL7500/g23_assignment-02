@@ -3,13 +3,13 @@ namespace Assignment2;
 public class Queries
 {
     
-    public IEnumerable<string> getWizardWithConstrainEx(WizardCollection wizards) {
+    public static IEnumerable<string> getWizardWithConstrainEx(WizardCollection wizards) {
         var harryCharacters = wizards.Where(w => w.Creator.Contains("Rowling")).Select(w => w.Name);
         var NotHarryCharacters = wizards.Where(w => !w.Creator.Contains("Rowling")).Select(w => w.ToString());
         return harryCharacters.Concat(NotHarryCharacters);
     }
 
-    public IEnumerable<string> getWizardWithConstrain(WizardCollection wizards) {
+    public static IEnumerable<string> getWizardWithConstrain(WizardCollection wizards) {
         var harryCharacters = 
             from w in wizards
             where w.Creator.Contains("Rowling")
@@ -20,7 +20,7 @@ public class Queries
             select w.ToString();
         return harryCharacters.Concat(NotHarryCharacters);
     }
-    public int? GetFirstSithYearEx(WizardCollection wizards) {
+    public static int? GetFirstSithYearEx(WizardCollection wizards) {
         var result = wizards.Where(w => w.Name.Contains("Darth"));
         return result.Min(w => w.Year);
     }
@@ -33,11 +33,11 @@ public class Queries
         return result.Min();
     }
     
-    public IEnumerable<(string name, int? year)> GetHarryPotterCharactersEx(WizardCollection wizards) {
+    public static IEnumerable<(string name, int? year)> GetHarryPotterCharactersEx(WizardCollection wizards) {
         return wizards.Where(w => w.Medium.Contains("Harry Potter")).Select(w => (w.Name, w.Year)).Distinct();
     } 
 
-    public IEnumerable<(string name, int? year)> GetHarryPotterCharacters(WizardCollection wizards) {
+    public static IEnumerable<(string name, int? year)> GetHarryPotterCharacters(WizardCollection wizards) {
         var result = 
             from w in wizards
             where w.Medium.Contains("Harry Potter")
@@ -45,13 +45,13 @@ public class Queries
         return result;
         
     }
-    public IEnumerable<string> GetReversedOrderedListEX(WizardCollection wizards) {
+    public static IEnumerable<string> GetReversedOrderedListEX(WizardCollection wizards) {
         var orderedList = wizards.OrderByDescending(w => w.Name);
         var result = orderedList.GroupBy(w => w.Creator).Reverse();
         return result.SelectMany(group => group).Select(w => w.Name).Distinct();
     }
 
-    public IEnumerable<string> GetReversedOrderedList(WizardCollection wizards) {
+    public static IEnumerable<string> GetReversedOrderedList(WizardCollection wizards) {
         var result = 
             from w in wizards
             orderby w.Name descending
